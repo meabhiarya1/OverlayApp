@@ -1,10 +1,22 @@
 @echo off
-echo Compiling OverlayApp...
+setlocal
 
-:: Set up MSVC environment
-call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x64
+:: Set compiler
+set COMPILER=cl
 
-:: Build command
-cl /EHsc main.cpp user32.lib gdi32.lib
+:: Set source files
+set SOURCES=main.cpp imgui\*.cpp imgui\backends\imgui_impl_win32.cpp imgui\backends\imgui_impl_dx11.cpp
+
+:: Set include paths
+set INCLUDES=/Iimgui /Iimgui\backends
+
+:: Set compiler flags
+set CXXFLAGS=/TP /std:c++17
+
+:: Set libraries
+set LIBS=dwmapi.lib d3d11.lib
+
+:: Compile
+%COMPILER% %CXXFLAGS% %SOURCES% %INCLUDES% /link %LIBS%
 
 pause

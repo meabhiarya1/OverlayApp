@@ -1,0 +1,30 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build Overlay",
+        "type": "shell",
+        "command": "cl",
+        "args": [
+          "/EHsc",
+          "/Fe:overlay.exe",
+          "main.cpp",
+          "imgui\\imgui.cpp",
+          "imgui\\imgui_draw.cpp",
+          "imgui\\imgui_tables.cpp",
+          "imgui\\imgui_widgets.cpp",
+          "imgui\\imgui_demo.cpp",
+          "imgui\\backends\\imgui_impl_dx11.cpp",
+          "imgui\\backends\\imgui_impl_win32.cpp",
+          "user32.lib",
+          "gdi32.lib",
+          "d3d11.lib",
+          "dxgi.lib",
+          "d3dcompiler.lib"
+        ],
+        "group": "build",
+        "problemMatcher": ["$msCompile"]
+      }
+    ]
+  }
+  
